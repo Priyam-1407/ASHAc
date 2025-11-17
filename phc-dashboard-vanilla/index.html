@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHC Dashboard · Vanilla</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div id="toast-container" class="toast-container"></div>
+
+  <section id="login-view" class="auth-view">
+    <div class="auth-card">
+      <p class="eyebrow">Primary Health Center</p>
+      <h1>PHC Command Center</h1>
+      <p class="muted">
+        Sign in with your administrator credentials to access real-time PHC
+        intelligence.
+      </p>
+      <form id="login-form" class="auth-form">
+        <label>
+          <span>Username</span>
+          <input
+            id="login-username"
+            type="email"
+            placeholder="priyam@2006"
+            required
+          />
+        </label>
+        <label>
+          <span>Password</span>
+          <input
+            id="login-password"
+            type="password"
+            placeholder="priyam123"
+            required
+          />
+        </label>
+        <p id="login-error" class="error-text" aria-live="polite"></p>
+        <button type="submit" class="primary-btn">Login to dashboard</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="app-shell" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="main-pane">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow small">Primary Health Center</p>
+          <h2 id="page-title">Dashboard Overview</h2>
+        </div>
+        <div class="topbar-actions">
+          <select id="language-select" class="chip">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="od">ଓଡ଼ିଆ</option>
+          </select>
+          <button id="theme-toggle" class="chip" aria-label="Toggle theme">
+            🌙
+          </button>
+          <div class="notification-pill">
+            <button id="notif-toggle" aria-label="Notifications">🔔</button>
+            <span id="notif-count" class="badge">0</span>
+            <div id="notif-panel" class="notif-panel hidden"></div>
+          </div>
+          <div class="user-pill">
+            <div class="avatar">MP</div>
+            <div>
+              <p class="user-name">Dr. Meera Patil</p>
+              <p class="muted small">PHC Administrator</p>
+            </div>
+            <button id="logout-btn" class="ghost-btn">Sign out</button>
+          </div>
+        </div>
+      </header>
+      <main id="content-area" class="content-area"></main>
+    </div>
+  </section>
+
+  <div id="modal-root" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <header class="modal-header">
+        <div>
+          <h3 id="modal-title"></h3>
+          <p id="modal-subtitle" class="muted small"></p>
+        </div>
+        <button id="modal-close" class="ghost-btn">✕</button>
+      </header>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>
+
+
